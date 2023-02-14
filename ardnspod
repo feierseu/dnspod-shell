@@ -303,6 +303,10 @@ arDdnsUpdate() {
         else
             arLog "> arDdnsUpdate - last record ip: $lastRecordIp"
         fi
+        if [ "$lastRecordIp" == "$5" ]; then
+            arLog "> arDdnsUpdate - unchanged: $5"
+            return $arErrCodeUnchanged # unchanged event
+        fi
     fi
 
     # update ip
